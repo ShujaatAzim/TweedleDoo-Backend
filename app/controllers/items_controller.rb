@@ -11,6 +11,10 @@ class ItemsController < ApplicationController
         render json: @item.to_json()
     end
 
+    def new
+        @item = Item.new
+    end
+
     def create
         @item = Item.new(item_params)
         @item.save
