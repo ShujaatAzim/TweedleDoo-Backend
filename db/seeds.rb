@@ -6,10 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-list1 = List.create()
-list2 = List.create()
-
-item1 = Item.create(list: list1, content: "Networking")
-item2 = Item.create(list: list1, content: "Algorithms")
-item3 = Item.create(list: list2, content: "Project")
-item4 = Item.create(list: list2, content: "Learning")
+item1 = Item.create(content: "Networking")
+item2 = Item.create(content: "Algorithms")
+item3 = Item.create(content: "Project")
+item4 = Item.create(content: "Learning")
