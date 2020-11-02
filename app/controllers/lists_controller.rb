@@ -10,4 +10,10 @@ class ListsController < ApplicationController
     render json: ListSerializer.new(@list).to_serialized_json()
   end
 
+  def new
+    @list = List.new
+  end
+
+  
+
 end
