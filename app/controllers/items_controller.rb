@@ -10,10 +10,6 @@ class ItemsController < ApplicationController
 		render json: ItemSerializer.new(@item).to_serialized_json()
 	end
 
-	def new
-		@item = Item.new
-	end
-
 	def create
 		@item = Item.new(item_params)
 		@item.save
