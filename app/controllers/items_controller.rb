@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
 	private
 
 	def item_params
-		params.require(:item).permit(:list_id, :content)
+		params.require(:item).permit(:list_id, :content, :complete)
 	end
 
 end
