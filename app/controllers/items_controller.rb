@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
 
 	def update
 		@item = Item.find(params[:id])
-		@item.update(content: params[:content])
+		@item.update(content: params[:content], complete: params[:complete])
 		@item.save
 		render json: ItemSerializer.new(@item).to_serialized_json
 	end
