@@ -19,7 +19,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     @list.update(name: params[:name])
     @list.save
-    render json: ListSerializer.new(@list).to_serialized_json
+    render json: ListSerializer.new(@list).to_serialized_json()
   end
 
   def destroy

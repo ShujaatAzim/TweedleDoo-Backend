@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 		@item.update(content: params[:content], complete: params[:complete])
 		@item.save
-		render json: ItemSerializer.new(@item).to_serialized_json
+		render json: ItemSerializer.new(@item).to_serialized_json()
 	end
 
 	def destroy
