@@ -13,7 +13,7 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     @list.save
-    # render json: ListSerializer.new(@list).to_serialized_json
+    render json: ListSerializer.new(@list).to_serialized_json
   end
 
   def update

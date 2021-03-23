@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 	def create
 		@item = Item.new(item_params)
 		@item.save
-		# render json: ItemSerializer.new(@item).to_serialized_json
+		render json: ItemSerializer.new(@item).to_serialized_json
 	end
 
 	def update
