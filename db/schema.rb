@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_10_31_070507) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "items", force: :cascade do |t|
     t.integer "list_id"
     t.string "content"
