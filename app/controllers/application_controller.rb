@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::API
 
+  before_action :authenticate
+
   def authenticate
     if request.headers["Authorization"]
       begin
@@ -26,7 +28,7 @@ class ApplicationController < ActionController::API
     auth_header.split(" ")[1]
   end
 
-  
+
   def create_token(payload)
     JWT.encode(payload, secret)
   end
