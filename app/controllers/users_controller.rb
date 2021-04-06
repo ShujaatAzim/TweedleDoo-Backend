@@ -21,18 +21,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    if @user.update(user_params)
-      render json: @user
-    else
-      render json: @user.errors, status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    @user.destroy
-  end
-
   private
 
   def user_params
