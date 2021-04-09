@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
 	def index
 		@items = Item.all
 		render json: ItemSerializer.new(@items).to_serialized_json
+		# render json: current_user.lists  <-- this is for testing what get's shown upon authorized request
 	end
 
 	def show

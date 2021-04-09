@@ -1,5 +1,7 @@
 class ListsController < ApplicationController
 
+  skip_before_action :authorized, only: [:index, :show] #these are only skipped for now, during development. Will be removed.
+
   def index
     @lists = List.all
     render json: ListSerializer.new(@lists).to_serialized_json
@@ -31,7 +33,7 @@ class ListsController < ApplicationController
   private 
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :user_id)
   end
 
 end

@@ -1,16 +1,17 @@
 class UsersController < ApplicationController
 
-  skip_before_action :authorized, only: [:create, :index]
+  skip_before_action :authorized, only: [:create, :index, :show] #these are skipped for now, will remove later (only leaving create)
 
   def index
     @users = User.all
-    render json: @users
+    render json: UserSerializer.new(@users).to_serialized_json
   end
 
-  def profile
-    render json: { user: current_user }, status: :accepted
+  def show
+    @user = User.find(params[:id])
+    render json: UserSerializer.new(@user).to_serialized_json
   end
-
+  
   def create
     @user = User.create(user_params)
     if @user.valid?
@@ -19,6 +20,10 @@ class UsersController < ApplicationController
     else
       render json: { error: 'failed to create user' }, status: :not_acceptable
     end
+  end
+
+  def profile
+    render json: { user: current_user, lists: current_user.lists }, status: :accepted
   end
 
   private

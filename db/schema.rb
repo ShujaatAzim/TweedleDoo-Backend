@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2021_03_25_034508) do
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
