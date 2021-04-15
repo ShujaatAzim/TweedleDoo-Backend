@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
 	end
 
 	def show
-		@item = Item.find(params[:id])
+		@item = Item.where(list_id: params[:id])
 		render json: ItemSerializer.new(@item).to_serialized_json
 	end
 
