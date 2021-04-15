@@ -1,9 +1,9 @@
 class ListsController < ApplicationController
 
-  skip_before_action :authorized, only: [:index, :show] #these are only skipped for now, during development. Will be removed.
+  skip_before_action :authorized, only: [:show] #these are only skipped for now, during development. Will be removed.
 
   def index
-    @lists = List.all
+    @lists = List.where(user_id: current_user.id)
     render json: ListSerializer.new(@lists).to_serialized_json
   end
 
