@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.valid?
       @token = encode_token({ user_id: @user.id })
-      render json: { username: @user.username, jwt: @token, logged: true }, status: :created
+      render json: { id: @user.id, username: @user.username, jwt: @token, logged: true }, status: :created
     else
       render json: { error: "Invalid user creation credentials" }, status: :not_acceptable
     end
