@@ -27,6 +27,10 @@ class ListsController < ApplicationController
 
   def destroy
     @list = List.find(params[:id])
+    @items = Item.where(list_id: @list.id)
+    @items.each do |item|
+      item.destroy
+    end
     @list.destroy
   end
 
