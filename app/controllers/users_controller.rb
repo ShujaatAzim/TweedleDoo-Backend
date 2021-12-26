@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  skip_before_action :authorized, only: [:create, :index, :show] #these are skipped for now, will remove later (only leaving create)
+  skip_before_action :authorized, only: [:create, :index, :show] # these are skipped for now, will remove later (only leaving create)
 
   def index
     @users = User.all
