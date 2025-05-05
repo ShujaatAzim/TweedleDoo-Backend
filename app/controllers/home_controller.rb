@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+  skip_before_action :authorized #only for dev purposes
+
   def index
     render json: {
       name: "td-backend",
@@ -7,4 +9,5 @@ class HomeController < ApplicationController
       message: "Welcome to the API for TweedleDoo. /items and /users are freely available to view (for now)."
     }
   end
+
 end
